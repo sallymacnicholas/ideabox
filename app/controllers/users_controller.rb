@@ -9,7 +9,8 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to @user
     else
-      #add this later
+      flash.notice = 'Invalid Login'
+      render :new
     end
   end
 

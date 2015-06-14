@@ -15,8 +15,9 @@ RSpec.describe User, type: :feature do
     page.fill_in 'Username', with: ''
     page.fill_in 'Password', with: 'password'
     page.click_button 'Create Account'
+    save_and_open_page
 
-    expect(page).to have_content('Login information is invalid')
+    expect(page).to have_content('Invalid Login')
 
   end
 
