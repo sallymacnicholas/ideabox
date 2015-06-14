@@ -1,8 +1,6 @@
 require 'test_helper'
 
 class CreateUserTest < ActionDispatch::IntegrationTest
-  include Capybara::DSL
-
   test 'user can create account' do
     visit new_user_path
     fill_in 'Username', with: 'sally'
