@@ -15,6 +15,11 @@ class UsersController < ApplicationController
   end
 
   def show
+    if current_user
+      @user = current_user
+    else
+      redirect_to login_path
+    end
   end
 
   private
