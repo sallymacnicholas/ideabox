@@ -4,6 +4,7 @@
 <h4>A list of all your fancy ideas</h4>
 <% @user.ideas.each do |idea| %>
   <%= link_to idea.name, idea_path(idea) %>
-  <%= link_to 'Edit', edit_idea_path(idea) %><br>
+  <%= link_to 'Edit', edit_idea_path(idea) %>
+  <%= link_to 'Delete', idea_path(idea), method: :delete %><br>
 <% end %>
 
