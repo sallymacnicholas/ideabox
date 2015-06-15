@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :feature do
-  it 'can create an idea' do
+  it 'can update an idea' do
     user = User.create(username: 'sally', password: 'password')
 
     visit login_path
@@ -19,7 +19,14 @@ RSpec.describe User, type: :feature do
     page.fill_in 'Description', with: 'just a bunch of nothing'
     click_button 'Create Idea'
 
-    expect(page).to have_content('save the world')
-    expect(page).to have_content('a new description')
+    first(:link, 'Edit').click
+    page.fill_in 'Name', with: 'no longer saving the planet'
+    page.fill_in 'Description', with: 'sure ok'
+    click_button 'Update Idea'
+
+    save_and_open_page
+
+    expect(page).to_not have_content('save the world')
+    expect(page).to have_content('no longer saving the planet')
   end
 end
