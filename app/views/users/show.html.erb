@@ -1,0 +1,8 @@
+This is your homepage, but mostly for now so i know what page this is. user show
+
+<%= link_to 'Create New Idea', new_idea_path %>
+
+<% @user.ideas.each do |idea| %>
+  <%= link_to idea.name, idea_path(idea) %>
+<% end %>
+
