@@ -1,8 +1,9 @@
-This is your homepage, but mostly for now so i know what page this is. user show
+<h3>This is your homepage, but mostly for now so i know what page this is. user show</h3>
 
-<%= link_to 'Create New Idea', new_idea_path %>
-
+<%= link_to 'Create New Idea', new_idea_path %><br>
+<h4>A list of all your fancy ideas</h4>
 <% @user.ideas.each do |idea| %>
   <%= link_to idea.name, idea_path(idea) %>
+  <%= link_to 'Edit', edit_idea_path(idea) %><br>
 <% end %>
 
