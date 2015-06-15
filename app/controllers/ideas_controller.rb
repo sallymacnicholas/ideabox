@@ -33,6 +33,14 @@ class IdeasController < ApplicationController
     flash.notice = "You're idea has been updated"
     redirect_to current_user
   end
+
+  def destroy
+    @idea = Idea.find(params[:id])
+    @idea.destroy
+    flash.notice = "You're idea has been deleted"
+    redirect_to current_user
+  end
+
   private
 
   def idea_params
